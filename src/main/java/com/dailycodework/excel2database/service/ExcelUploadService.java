@@ -49,7 +49,7 @@ public class ExcelUploadService {
                   
                    switch (cellIndex){
                   
-                      
+                   case 0 ->customer.setId((int) cell.getNumericCellValue());
                        case 1 -> customer.setUsername(cell.getStringCellValue());
                       
                        case 3 -> customer.setPassword(cell.getStringCellValue());

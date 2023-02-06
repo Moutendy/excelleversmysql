@@ -24,7 +24,7 @@ public class CustomerController {
     @Autowired
     servicexcel servi;
     
-    @PostMapping("/upload-customers-data")
+    @PostMapping("/excel")
     public ResponseEntity<?> uploadCustomersData(@RequestParam("file")MultipartFile file){
     
         this.customerService.saveCustomersToDatabase(file);
@@ -32,7 +32,7 @@ public class CustomerController {
                 .ok(Map.of("Message" , " Customers data uploaded and saved to database successfully"));
     }
 
-    @GetMapping("/excel")
+    @GetMapping("")
     public void getCustomers(){
     	servi.CreateExcelFileWithCell();
     }

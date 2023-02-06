@@ -39,7 +39,7 @@ public class CustomerService {
                 	i++;
                 	u.setPassword(passwordEncoder.encode(p.getPassword()));
                 	u.setRole(role);
-                	u.setId((Long)i);
+                	u.setId(p.getId());
                 	u.setUsername(p.getUsername());
                 	
                 	System.out.println(u.getPassword());

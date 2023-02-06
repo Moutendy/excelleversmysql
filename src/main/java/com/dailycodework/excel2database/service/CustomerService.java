@@ -34,7 +34,7 @@ public class CustomerService {
                 List<Users> customers = ExcelUploadService.getCustomersDataFromExcel(file.getInputStream());
                 Users u= new Users();
             
-                Role role= new Role(2L,"Utilisateur","USER");
+                Role role= new Role(2L,"user");
                 for(Users p: customers){
                 	i++;
                 	u.setPassword(passwordEncoder.encode(p.getPassword()));

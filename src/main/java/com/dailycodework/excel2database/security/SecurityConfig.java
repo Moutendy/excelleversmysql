@@ -44,6 +44,6 @@ protected void configure(HttpSecurity httpSecurity) throws Exception {
 	httpSecurity
       // ...
       .csrf().disable();
-    httpSecurity.authorizeRequests().antMatchers("localhost:8088/customers/upload-customers-data").permitAll();
+    httpSecurity.authorizeRequests().antMatchers("localhost:8088/customers/excel").permitAll();
 }
 }

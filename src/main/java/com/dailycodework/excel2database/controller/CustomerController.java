@@ -2,7 +2,11 @@ package com.dailycodework.excel2database.controller;
 
 import com.dailycodework.excel2database.domain.Customer;
 import com.dailycodework.excel2database.service.CustomerService;
+import com.dailycodework.excel2database.service.servicexcel;
+
 import lombok.AllArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +21,9 @@ import java.util.Map;
 public class CustomerController {
     private CustomerService customerService;
 
+    @Autowired
+    servicexcel servi;
+    
     @PostMapping("/upload-customers-data")
     public ResponseEntity<?> uploadCustomersData(@RequestParam("file")MultipartFile file){
     
@@ -25,8 +32,8 @@ public class CustomerController {
                 .ok(Map.of("Message" , " Customers data uploaded and saved to database successfully"));
     }
 
-//    @GetMapping
-//    public ResponseEntity<List<Customer>> getCustomers(){
-//        return new ResponseEntity<>(customerService.getCustomers(), HttpStatus.FOUND);
-//    }
+    @GetMapping("/excel")
+    public void getCustomers(){
+    	servi.CreateExcelFileWithCell();
+    }
 }
